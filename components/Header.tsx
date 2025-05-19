@@ -1,5 +1,11 @@
+import { DarkModeToggle } from "./DarkModeToggle";
+
 function Header() {
-  return <div>Headers</div>;
+  return (
+    <div>
+      <DarkModeToggle />
+    </div>
+  );
 }
 
 export default Header;
