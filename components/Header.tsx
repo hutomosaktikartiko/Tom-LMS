@@ -3,6 +3,7 @@ import { DarkModeToggle } from "./DarkModeToggle";
 import { BookMarkedIcon, BookOpen } from "lucide-react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
+import SearchInput from "./SearchInput";
 
 function Header() {
   return (
@@ -19,6 +20,8 @@ function Header() {
                 Courselly
               </span>
             </Link>
+
+            <SearchInput />
           </div>
           <div className="flex items-center space-x-2 md:space-x-4">
             <nav>
