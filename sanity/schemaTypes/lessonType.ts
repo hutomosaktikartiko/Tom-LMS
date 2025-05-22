@@ -50,7 +50,7 @@ export const lessonType = defineType({
             }
             const videoId = url.pathname.split("/share/")[1];
             if (!/^[a-f0-9-]{32,36}/.test(videoId)) {
-              return "Invalid Loom viewo ID in URL";
+              return "Invalid Loom video ID in URL";
             }
             return true;
           } catch {

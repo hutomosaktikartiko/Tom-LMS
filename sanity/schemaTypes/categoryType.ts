@@ -32,5 +32,11 @@ export const categoryType = defineType({
       type: "string",
       description: "Icon identifier (e.g. for using with icon libraries)",
     }),
+    defineField({
+      name: "color",
+      title: "Color",
+      type: "string",
+      description: "Color code for the category (e.g., #FF0000)",
+    }),
   ],
 });
