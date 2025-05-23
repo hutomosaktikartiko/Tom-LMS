@@ -10,6 +10,5 @@ export async function getCourses() {
   }`);
 
   const courses = await sanityFetch({ query: getCoursesQuery });
-  console.log(courses);
   return courses.data;
 }

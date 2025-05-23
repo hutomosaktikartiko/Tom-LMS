@@ -17,9 +17,9 @@ function CourseCard({ course, progress, href }: CourseCardProps) {
     <Link
       href={href}
       prefetch={false}
-      className="ground hover:no-underline flex"
+      className="group hover:no-underline flex"
     >
-      <div className="bg-card rounded-xl overflow-hidden shadow-lg transition-all duration-all duration-300 ease-in-out hover:shadow-xl hover:translate-y-[-4px] border border-border flex flex-col flex-1">
+      <div className="bg-card rounded-xl overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:translate-y-[-4px] border border-border flex flex-col flex-1">
         <div className="relative h-52 w-full overflow-hidden">
           {course.image ? (
             <Image
@@ -33,9 +33,7 @@ function CourseCard({ course, progress, href }: CourseCardProps) {
               <Loader size="lg" />
             </div>
           )}
-
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
             <span className="text-sm font-medium px-3 py-1 bg-black/50 text-white rounded-full backdrop-blur-sm">
               {course.category?.name || "Uncategorized"}
@@ -51,7 +49,6 @@ function CourseCard({ course, progress, href }: CourseCardProps) {
             )}
           </div>
         </div>
-
         <div className="p-6 flex flex-col flex-1">
           <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
             {course.title}
@@ -59,7 +56,6 @@ function CourseCard({ course, progress, href }: CourseCardProps) {
           <p className="text-muted-foreground mb-4 line-clamp-2 flex-1">
             {course.description}
           </p>
-
           <div className="space-y-4 mt-auto">
             {course.instructor && (
               <div className="flex items-center justify-between">
@@ -68,7 +64,7 @@ function CourseCard({ course, progress, href }: CourseCardProps) {
                     <div className="relative h-8 w-8 mr-2">
                       <Image
                         src={urlFor(course.instructor.photo).url() || ""}
-                        alt={course.instructor.name || "Instructor Image"}
+                        alt={course.instructor.name || "Instructor"}
                         fill
                         className="rounded-full object-cover"
                       />
@@ -85,7 +81,6 @@ function CourseCard({ course, progress, href }: CourseCardProps) {
                 <BookOpen className="h-4 w-4 text-muted-foreground" />
               </div>
             )}
-
             {typeof progress === "number" && (
               <CourseProgress
                 progress={progress}
