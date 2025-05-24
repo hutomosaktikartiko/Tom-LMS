@@ -1,7 +1,8 @@
+import { GetCourseByIdQueryResult } from "@/sanity.types";
 import { sanityFetch } from "../live";
 import { defineQuery } from "groq";
 
-async function getCourseById(id: string) {
+async function getCourseById(id: string): Promise<GetCourseByIdQueryResult> {
   const getCourseByIdQuery =
     defineQuery(`*[_type == "course" && _id == $id][0] {
       ...,  // Spread all course fields

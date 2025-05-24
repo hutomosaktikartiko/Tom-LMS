@@ -5,7 +5,7 @@ import { getStudentByClerkId } from "../student/getStudentByClerkId";
 export async function getLessonCompletionStatus(
   lessonId: string,
   clerkId: string
-) {
+): Promise<boolean> {
   // First get the student's Sanity ID
   const student = await getStudentByClerkId(clerkId);
 

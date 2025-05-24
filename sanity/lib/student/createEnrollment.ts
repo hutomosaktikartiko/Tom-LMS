@@ -1,3 +1,4 @@
+import { Enrollment } from "@/sanity.types";
 import { client } from "../adminClient";
 
 interface CreateEnrollmentParams {
@@ -12,7 +13,7 @@ export async function createEnrollment({
   courseId,
   paymentId,
   amount,
-}: CreateEnrollmentParams) {
+}: CreateEnrollmentParams): Promise<any> {
   return client.create({
     _type: "enrollment",
     student: {

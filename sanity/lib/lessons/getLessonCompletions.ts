@@ -1,10 +1,21 @@
+import { GetCompletionsQueryResult } from "@/sanity.types";
 import { defineQuery } from "groq";
 import { sanityFetch } from "../live";
 
 export async function getLessonCompletions(
   studentId: string,
   courseId: string
-) {
+): Promise<{
+  completedLessons: NonNullable<GetCompletionsQueryResult>["completedLessons"];
+  moduleProgress: Array<{
+    moduleId: string;
+    title?: string;
+    progress: number;
+    completedLessons: number;
+    totalLessons: number;
+  }>;
+  courseProgress: number;
+}> {
   const getCompletionsQuery = defineQuery(`{
     "completedLessons": *[_type == "lessonCompletion" && student._ref == $studentId && course._ref == $courseId] {
       ...,

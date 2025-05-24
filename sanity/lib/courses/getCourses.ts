@@ -1,7 +1,8 @@
+import { GetCoursesQueryResult } from "@/sanity.types";
 import { sanityFetch } from "../live";
 import { defineQuery } from "groq";
 
-export async function getCourses() {
+export async function getCourses(): Promise<GetCoursesQueryResult> {
   const getCoursesQuery = defineQuery(`*[_type == "course"] {
     ...,
     "slug": slug.current,

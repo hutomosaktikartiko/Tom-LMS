@@ -1,7 +1,11 @@
+import { StudentQueryResult, EnrollmentQueryResult } from "@/sanity.types";
 import groq from "groq";
 import { sanityFetch } from "../live";
 
-export async function isEnrolledInCourse(clerkId: string, courseId: string) {
+export async function isEnrolledInCourse(
+  clerkId: string,
+  courseId: string
+): Promise<boolean> {
   try {
     // First get the student document using clerkId
     const studentQuery = groq`*[_type == "student" && clerkId == $clerkId][0]._id`;

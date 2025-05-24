@@ -10,7 +10,7 @@ interface UncompleteLessonParams {
 export async function uncompleteLessonById({
   lessonId,
   clerkId,
-}: UncompleteLessonParams) {
+}: UncompleteLessonParams): Promise<void> {
   // Get Sanity student ID from Clerk ID
   const student = await sanityFetch({
     query: groq`*[_type == "student" && clerkId == $clerkId][0]._id`,

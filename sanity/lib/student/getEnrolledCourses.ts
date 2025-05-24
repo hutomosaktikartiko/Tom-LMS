@@ -1,7 +1,10 @@
+import { GetEnrolledCoursesQueryResult } from "@/sanity.types";
 import { defineQuery } from "groq";
 import { sanityFetch } from "../live";
 
-export async function getEnrolledCourses(clerkId: string) {
+export async function getEnrolledCourses(
+  clerkId: string
+): Promise<NonNullable<GetEnrolledCoursesQueryResult>["enrolledCourses"]> {
   const getEnrolledCoursesQuery =
     defineQuery(`*[_type == "student" && clerkId == $clerkId][0] {
     "enrolledCourses": *[_type == "enrollment" && student._ref == ^._id] {

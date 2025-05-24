@@ -1,3 +1,4 @@
+import { LessonCompletion } from "@/sanity.types";
 import groq from "groq";
 import { client } from "../adminClient";
 import { getStudentByClerkId } from "../student/getStudentByClerkId";
@@ -9,7 +10,7 @@ export async function completeLessonById({
 }: {
   lessonId: string;
   clerkId: string;
-}) {
+}): Promise<any> {
   try {
     // Get Sanity student ID from Clerk ID
     const student = await getStudentByClerkId(clerkId);

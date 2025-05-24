@@ -1,10 +1,17 @@
+import { ProgressQueryResult } from "@/sanity.types";
 import { defineQuery } from "groq";
 import { sanityFetch } from "../live";
 import { getStudentByClerkId } from "../student/getStudentByClerkId";
 import { calculateCourseProgress } from "@/lib/courseProgress";
 import { Module } from "@/sanity.types";
 
-export async function getCourseProgress(clerkId: string, courseId: string) {
+export async function getCourseProgress(
+  clerkId: string,
+  courseId: string
+): Promise<{
+  completedLessons: NonNullable<ProgressQueryResult>["completedLessons"];
+  courseProgress: number;
+}> {
   // First get the student's Sanity ID
   const student = await getStudentByClerkId(clerkId);
 

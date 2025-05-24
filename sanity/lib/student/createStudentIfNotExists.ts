@@ -1,3 +1,4 @@
+import { Student } from "@/sanity.types";
 import groq from "groq";
 import { sanityFetch } from "../live";
 import { client } from "../adminClient";
@@ -16,7 +17,7 @@ export async function createStudentIfNotExists({
   firstName,
   lastName,
   imageUrl,
-}: CreateStudentProps) {
+}: CreateStudentProps): Promise<any> {
   // First check if student exists
   const existingStudentQuery = await sanityFetch({
     query: groq`*[_type == "student" && clerkId == $clerkId][0]`,

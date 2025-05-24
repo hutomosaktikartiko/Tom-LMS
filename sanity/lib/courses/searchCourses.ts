@@ -1,7 +1,8 @@
+import { SearchQueryResult } from "@/sanity.types";
 import { defineQuery } from "groq";
 import { sanityFetch } from "../live";
 
-export async function searchCourses(term: string) {
+export async function searchCourses(term: string): Promise<SearchQueryResult> {
   const searchQuery = defineQuery(`*[_type == "course" && (
     title match $term + "*" || 
     description match $term + "*" ||
