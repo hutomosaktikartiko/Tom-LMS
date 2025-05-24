@@ -5,7 +5,7 @@ import { BookMarkedIcon, BookOpen } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 import { Button } from "./ui/button";
-import { DarkModeToggle } from "./DarkModeToggle";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default function Header() {
   return (
