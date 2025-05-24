@@ -1,4 +1,5 @@
 import EnrollButton from "@/components/EnrollButton";
+import { GetCourseBySlugQueryResult } from "@/sanity.types";
 import getCourseBySlug from "@/sanity/lib/courses/getCourseBySlig";
 import { urlFor } from "@/sanity/lib/image";
 import { isEnrolledInCourse } from "@/sanity/lib/student/isEnrolledInCourse";
@@ -15,7 +16,7 @@ interface CoursePageProps {
 
 async function CoursePage({ params }: CoursePageProps) {
   const { slug } = await params;
-  const course = await getCourseBySlug(slug);
+  const course = (await getCourseBySlug(slug)) as GetCourseBySlugQueryResult;
   const { userId } = await auth();
 
   const isEnrolled =

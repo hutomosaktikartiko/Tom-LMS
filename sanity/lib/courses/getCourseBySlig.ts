@@ -1,7 +1,10 @@
+import { GetCourseBySlugQueryResult } from "@/sanity.types";
 import { sanityFetch } from "../live";
 import { defineQuery } from "groq";
 
-async function getCourseBySlug(slug: string) {
+async function getCourseBySlug(
+  slug: string
+): Promise<GetCourseBySlugQueryResult> {
   const getCourseBySlugQuery =
     defineQuery(`*[_type == "course" && slug.current == $slug][0] {
       ...,
