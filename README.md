@@ -14,6 +14,14 @@ pnpm dev
 bun dev
 ```
 
+### TODO
+
+- Implement Stripe Integration, source https://www.youtube.com/watch?v=17VzlB35Ixw&t=11738s until https://www.youtube.com/watch?v=17VzlB35Ixw&t=14270s
+
+#### Source
+
+https://www.youtube.com/watch?v=17VzlB35Ixw&list=PLpz3Hti6gf5IUJJ-InBZKKtQD-nteabEF&index=9&t=327s
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
