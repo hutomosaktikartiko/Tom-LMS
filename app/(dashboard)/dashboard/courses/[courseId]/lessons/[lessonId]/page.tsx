@@ -7,15 +7,15 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 import { LessonCompleteButton } from "@/components/LessonCompleteButton";
 
 interface LessonPageProps {
-  params: {
+  params: Promise<{
     courseId: string;
     lessonId: string;
-  };
+  }>;
 }
 
 export default async function LessonPage({ params }: LessonPageProps) {
   const user = await currentUser();
-  const { courseId, lessonId } = params;
+  const { courseId, lessonId } = await params;
 
   const lesson = await getLessonById(lessonId);
 
